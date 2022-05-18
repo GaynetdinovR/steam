@@ -24,39 +24,37 @@
                     $num += 1;
                     if($role == 1){
                         foreach($expenses as $expense):
-                            if($history->expense_id == $expense->id){
+                            if($history->expense_id == $expense->id)
                                 if($expense->user_id == $_SESSION['sid']){
-                                        $user_id = $expense->user_id;
-                                        echo '<tr>' .
-                                        '<td>' . $num  . '</td>' .
-                                        '<td>' . $history->balance . '</td>' .
-                                        '<td>' . $history->type_operation_id . '</td>' .
-                                        '<td>' . $history->status . '</td>' .
-                                        '<td>' . $history->date_of_enrollment . '</td>' .
-                                        '<td>' . $fullnames[$user_id - 1]['name'] . ' ' . $fullnames[$user_id - 1]['surname'] . '</td>' .
-                                        '<td>' . $expense->user_id . '</td>' .
-                                        '</tr>';
-                                }
-                            }
-                        endforeach;
-                    } else {
+                                    $user_id = $expense->user_id;?>
+                                    <tr>
+                                    <td><?=$num?></td>
+                                    <td><?=$history->balance?></td>
+                                    <td><?=$history->type_operation_id?></td>
+                                    <td><?=$history->status?></td>
+                                    <td><?=$history->date_of_enrollment?></td>
+                                    <td><?=$fullnames[$user_id - 1]['name'] . ' ' . $fullnames[$user_id - 1]['surname']?></td>
+                                    <td><?=$user_id?></td>
+                                    </tr>
+                        <?}endforeach;
+                        } else {
                         foreach($expenses as $expense):
                             if($history->expense_id == $expense->id){
-                                $user_id = $expense->user_id;
-                                echo '<tr>' .
-                                '<td>' . $num  . '</td>' .
-                                '<td>' . $history->balance . '</td>' .
-                                '<td>' . $history->type_operation_id . '</td>' .
-                                '<td>' . $history->status . '</td>' .
-                                '<td>' . $history->date_of_enrollment . '</td>' .
-                                '<td>' . $fullnames[$user_id - 1]['name'] . ' ' . $fullnames[$user_id - 1]['surname'] . '</td>' .
-                                '<td>' . $expense->user_id . '</td>' .
-                                '</tr>';
-                            }
+                                $user_id = $expense->user_id?>
+                                <tr>
+                                <td><?=$num?></td>
+                                <td><?=$history->balance?></td>
+                                <td><?=$history->type_operation_id?></td>
+                                <td><?=$history->status?></td>
+                                <td><?=$history->date_of_enrollment?></td>
+                                <td><?=$fullnames[$user_id - 1]['name'] . ' ' . $fullnames[$user_id - 1]['surname']?></td>
+                                <td><?=$user_id?></td>
+                                </tr>
+                            <?}
                         endforeach;
-                    }
+                        }
                 endforeach;
-                 ?>
+                ?>
             </tbody>
         </table>
     </section>
